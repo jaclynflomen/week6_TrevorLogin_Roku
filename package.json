@@ -1,0 +1,26 @@
+{
+  "name": "week5_trevorpanclass",
+  "version": "1.0.0",
+  "description": "roku flashback build",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "roku",
+    "vue",
+    "components",
+    "flashback",
+    "build"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2"
+  },
+  "dependencies": {
+    "gulp-cli": "^2.0.1"
+  }
+}
