@@ -56,9 +56,11 @@ export default {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        if (data[0] == "Login Failed") {
+                        if (typeof data !== "object") {
                             //if te php file returns a failure, try again
                             console.log("authentication failed, try again");
+                            //pop a toast message / notification here
+                            return;
                         }else{
                             //if the back-end authentication works, then go to the users page
                             this.$emit("authenticated", true);

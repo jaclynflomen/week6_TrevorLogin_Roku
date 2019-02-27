@@ -1,13 +1,40 @@
+import InternalComponent from './InternalComponent.js';
+
 export default {
     template:  `
-    <h1>You're on the users page</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+            <h1 class="user-message"></h1>
+            </div>
+
+            <user v-for="(user, index) in userList" :liveuser="user" :key="index"></user>
+        </div>
+    </div>
     `,
+
+    created: function() {
+        this.fetchAllUsers();
+    },
 
     data(){
         return{
-            message: "hello from the component",
+            message: "Who's Using Roku?",
 
-            userlist: []
+            userList: []
         }
-    }
+    },
+
+    methods: {
+        fetchAllUsers() {
+            let url = `./admin/scripts/users.php?allusers=true`;
+
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {this.userList = data})
+            .catch(function(error){
+                console.log(error);
+            });
+        }
+    },
 }
