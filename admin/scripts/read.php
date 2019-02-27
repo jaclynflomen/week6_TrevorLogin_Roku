@@ -9,12 +9,20 @@ function getAll($tbl){
 
 	$runAll = $pdo->query($queryAll);
 
-	if($runAll){
-		return $runAll;
-	}else{
-		$error = 'There was a problem accessing this info';
-		return $error;
+	$results = array();
+
+	while($row = $runAll->fetch(PDO::FETCH_ASSOC)){
+		$results[] = $row;
 	}
+
+	return $results;
+
+	// if($runAll){
+	// 	return $runAll;
+	// }else{
+	// 	$error = 'There was a problem accessing this info';
+	// 	return $error;
+	// }
 }
 
 
@@ -53,6 +61,11 @@ function filterResults($tbl,$tbl_2,$tbl_3,$col,$col_2,$col_3,$filter){
 	$runQuery = $pdo->query($filterQuery);
 	if($runQuery){
 		return $runQuery;
+
+		while($row = $runAll->fetch(PDO::FETCH_ASSOC)){
+			$results[] = $row;
+		}
+		return $results;
 	}else{
 		$error = 'There was a problem';
 		return $error;

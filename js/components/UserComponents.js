@@ -5,9 +5,8 @@ export default {
     <div class="container">
         <div class="row">
             <div class="col-sm">
-            <h1 class="user-message"></h1>
+            <h1 class="user-message text-center">{{ message }}</h1>
             </div>
-
             <user v-for="(user, index) in userList" :liveuser="user" :key="index"></user>
         </div>
     </div>
@@ -37,4 +36,8 @@ export default {
             });
         }
     },
+
+    components: {
+        user: InternalComponent
+    }
 }
