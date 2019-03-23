@@ -3,7 +3,7 @@ export default {
 
     template: `
     <div class="container">
-        <h1>At the hmoe page component! Finally!!!</h1>
+        <h1>At the home page component! Finally!!!</h1>
     </div>
     `,
 
@@ -33,7 +33,7 @@ export default {
                 this.activeMediaType = mediaType
             }
 
-            let url = (filter == null) ?`./admin/index.php?media=${this.activeMediaType}` : `./admin/index.php?media=${this.mediaType}&&filter=${filter}`;
+            let url = (filter == null) ?`./admin/index.php?media=${this.activeMediaType}` : `./admin/index.php?media=${mediaType}&&filter=${filter}`;
 
 
         fetch(url)
